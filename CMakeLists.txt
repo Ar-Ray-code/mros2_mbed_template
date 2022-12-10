@@ -32,18 +32,40 @@ set(APP_TARGET mros2-mbed)
 #endif()
 #message(STATUS "APP_NAME=${APP_NAME}")
 
+# mros2 wiznet --------------------------------
 execute_process(COMMAND git submodule update --init --recursive
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/mros2)
 add_library(mros2 INTERFACE)
+
 add_subdirectory(mros2)
 include_directories(mros2/include)
+
+# wiznet --------------------------------
+# add_subdirectory(wiznet)
+include_directories(
+    wiznet
+    wiznet/WIZnet
+    wiznet/DNSClient
+    wiznet/DHCPClient
+)
+
 include_directories(include)
 include_directories(workspace)
 
 set(RTPS_CONFIG_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
 
+set(WIZNET_SRC
+    wiznet/WIZnetInterface.cpp
+    wiznet/DNSClient/DNSClient.cpp
+    wiznet/DHCPClient/DHCPClient.cpp
+    wiznet/WIZnet/W5500.cpp
+    wiznet/WIZnet/W6100.cpp
+    wiznet/WIZnet/W7500x_toe.cpp
+)
+
 add_executable(main
     workspace/main.cpp
+    ${WIZNET_SRC}
 )
 target_link_libraries(main mbed-os mbed-lwipstack mros2)
 
