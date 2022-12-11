@@ -7,5 +7,5 @@ Template for mros2 (STM32, Mbed)
 注意！事前にDockerがインストールされているのを確認してください。
 
 ```bash
-sh build.sh
+./build.py --target DISCO_F746NG
 ```
