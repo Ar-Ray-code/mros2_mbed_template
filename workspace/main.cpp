@@ -19,7 +19,7 @@
 #include "std_msgs/msg/string.hpp"
 #include "EthernetInterface.h"
 
-#define IP_ADDRESS ("192.168.11.2") /* IP address */
+#define IP_ADDRESS ("192.168.11.111") /* IP address */
 #define SUBNET_MASK ("255.255.255.0") /* Subnet mask */
 #define DEFAULT_GATEWAY ("192.168.11.1") /* Default gateway */
 
