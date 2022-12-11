@@ -36,7 +36,7 @@ set(RTPS_CONFIG_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
 
 target_include_directories(
   ${APP_TARGET}
-  PRIVATE workspace/${APP_NAME}
+  PRIVATE workspace/
   PRIVATE workspace/custom_msgs
   PRIVATE ${RTPS_CONFIG_INCLUDE_DIR}
 )
