@@ -9,3 +9,11 @@ Template for mros2 (STM32, Mbed)
 ```bash
 ./build.py --target DISCO_F746NG
 ```
+
+## 消去方法
+
+.ccacheとcmake_buildディレクトリを消去します。
+
+```bash
+./build.py --clean
+```
